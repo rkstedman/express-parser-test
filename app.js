@@ -20,14 +20,18 @@ app.use(favicon());
 app.use(logger('dev'));
 
 var PARSER = process.env.PARSER
-console.log('parser', PARSER);
-if(PARSER === 'multer')
+if(PARSER === 'multer') {
+  console.log('parser', PARSER);
   app.use(multer({dest:'/tmp'}));
-else if(PARSER === 'parted')
+} else if(PARSER === 'parted') {
+  console.log('parser', PARSER);
   app.use(parted({path:'/tmp'}));
-else
+} else {
+  console.log('parser express default')
+  // NO MULTIPART SUPPORT
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded());
+}
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));

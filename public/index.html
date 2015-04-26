@@ -4,138 +4,87 @@
 <head>
   <meta charset="UTF-8">
   <title>Forms Example</title>
-  <link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 </head>
 <body>
-  <form id="register"
-  class="bootstrap-frm"
-  method="POST"
-  action="/submit"
-  enctype="multipart/form-data">
-  <h1>Register for Miss Bakers Space Cadets</h1>
-  <fieldset>
-    <legend>Top Level Form Fields</legend>
-    <div>
-      <label>given-name
-        <input id="given-name" name="given-name" type="text" placeholder="First name only" value="Rachael" autofocus>
-      </label>
+  <div class="pure-g" style="padding:50px">
+    <div class="pure-u-1">
+      <form id="register"
+      class="pure-form"
+      method="POST"
+      action="/submit"
+      enctype="multipart/form-data">
+      <h1>Register for Miss Bakers Space Cadets</h1>
+      <fieldset>
+        <legend>Simple Form Fields</legend>
+        <div class="pure-control-group">
+          <label>simple-field</label>
+            <input id="simple-field" name="simple-field" type="text" placeholder="First name only" value="Rachael" autofocus>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Nested Object Fields</legend>
+        <div class="pure-control-group">
+          <label>nested.with.dots</label>
+            <input id="email" name="nested.with.dots" type="email" placeholder="example@domain.com" value="example@domain.com">
+        </div>
+        <div class="pure-control-group">
+          <label>nested[with][brackets]</label>
+            <input id="phone" name="nested[with][brackets]" type="tel" placeholder="Eg. +447000 000000" value="+447000 000000">
+        </div>
+        <fieldset>
+          <legend>Array Fields</legend>
+          <div class="pure-control-group">
+            <label>plainArray[]</label>
+              <input id="plainArray" name="plainArray[]" type="number" min="5" max="18" step="0.5" value="7">
+          </div>
+          <div class="pure-control-group">
+            <label>plainArray[]</label>
+              <input id="plainArray" name="plainArray[]" type="number" min="5" max="18" step="0.5" value="9">
+          </div>
+          <div class="pure-control-group">
+            <label>plainArray[]</label>
+              <input id="plainArray" name="plainArray[]" type="number" min="5" max="18" step="0.5" value="15">
+          </div>
+          <div class="pure-control-group">
+            <label>arrayFirstElem[0]</label>
+              <input id="skill" name="arrayFirstElem[0]" type="range" min="1" max="100" value="50">
+          </div>
+          <div class="pure-control-group">
+            <label>arraySecondElem[1]</label>
+              <input id="skill" name="arraySecondElem[1]" type="range" min="1" max="100" value="50">
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Combo Object Array Fields</legend>
+          <div class="pure-control-group">
+            <label>using[all][brackets]</label>
+              <textarea id="address" name="using[all][brackets]" rows=5>989 Market St</textarea>
+          </div>
+          <div class="pure-control-group">
+            <label>using[0].dots</label>
+            <input id="postCode" name="using[0].dots" type="text" value="94117">
+          </div>
+          <div>
+            <label>anObject.anArray[1]
+              <input id="country" name="anObject.anArray[1]" list="country-names" type="text" value="England">
+              <datalist id="country-names">
+                <option label="England" value="England"></option>
+                <option label="Northern Ireland" value="Northern Ireland"></option>
+                <option label="Ireland" value="Ireland"></option>
+                <option label="Scotland" value="Scotland"></option>
+                <option label="Wales" value="Wales"></option>
+              </datalist>
+            </label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div>
+            <button type=submit class="pure-button pure-button-primary">Place Order</button>
+          </div>
+        </fieldset>
+      </form>
     </div>
-    <div>
-      <label>family-name
-        <input id="family-name" name="family-name" type="text" placeholder="Last name only" value="Stedman" autofocus>
-      </label>
-    </div>
-    <div>
-      <label>date
-        <input id="dob" name="dob" type="date" value="2015-04-13">
-      </label>
-    </div>
-  </fieldset>
-  <fieldset>
-    <legend>Nested Object Fields</legend>
-    <div>
-      <label>meta.email
-        <input id="email" name="meta.email" type="email" placeholder="example@domain.com" value="example@domain.com">
-      </label>
-    </div>
-    <div>
-      <label>meta.url
-        <input id="url" name="meta.url" type="url" placeholder="http://mysite.com" value="http://google.com">
-      </label>
-    </div>
-    <div>
-      <label>meta[contact][phone]
-        <input id="phone" name="meta[contact][phone]" type="tel" placeholder="Eg. +447000 000000" value="+447000 000000">
-      </label>
-    </div>
-  <fieldset>
-    <legend>Array Fields</legend>
-    <div>
-      <label>shoes[]
-        <input id="shoes" name="shoes[]" type="number" min="5" max="18" step="0.5" value="7">
-      </label>
-    </div>
-    <div>
-      <label>shoes[]
-        <input id="shoes" name="shoes[]" type="number" min="5" max="18" step="0.5" value="9">
-      </label>
-    </div>
-    <div>
-      <label>shoes[]
-        <input id="shoes" name="shoes[]" type="number" min="5" max="18" step="0.5" value="15">
-      </label>
-    </div>
-    <div>
-      <label>skills[0]
-        <input id="skill" name="skills[0]" type="range" min="1" max="100" value="0">
-        <output name="output" onforminput="value=a.value">0</output>
-      </label>
-    </div>
-  </fieldset>
-  <fieldset>
-    <legend>Combo Object Array Fields</legend>
-    <div>
-      <label>addresses[0][street]
-        <textarea id="address" name="addresses[0][street]" rows=5>989 Market St</textarea>
-      </label>
-    </div>
-    <div>
-      <label>addresses[0].postCode
-        <input id="postCode" name="addresses[0].postCode" type="text" value="94117">
-      </label>
-    </div>
-    <div>
-      <label>country.name[1]
-        <input id="country" name="country.name[1]" list="country-names" type="text" value="England">
-        <datalist id="country-names">
-          <option label="England" value="England"></option>
-          <option label="Northern Ireland" value="Northern Ireland"></option>
-          <option label="Ireland" value="Ireland"></option>
-          <option label="Scotland" value="Scotland"></option>
-          <option label="Wales" value="Wales"></option>
-        </datalist>
-      </label>
-    </div>
-  </fieldset>
-  <fieldset>
-    <legend>Card details</legend>
-    <fieldset>
-      <legend>Card type</legend>
-      <div class="card-type">
-        <input id="visa" name="cardtype" type="radio">
-        <label for="visa">VISA</label>
-        <input id="mastercard" name="cardtype" type="radio">
-        <label for="mastercard">Mastercard</label>
-        <input id="amex" name="cardtype" type="radio">
-        <label for="amex">AMEX</label>
-      </div>
-    </fieldset>
-    <div>
-      <label>Name
-        <input id="cardName" name="cardName" type="text" placeholder="Name as it appears on your card">
-      </label>
-    </div>
-    <div>
-      <label>Card number
-        <input id="cardNo" name="cardNo" type="number" title="The sixteen digit number across the middle of your card.">
-      </label>
-    </div>
-    <div>
-      <label>Security code
-        <input id="security" name="security" type="number" pattern="[0-9]{3}" title="The last three digits on the back of your card.">
-      </label>
-    </div>
-    <div>
-      <label>Expiry Date
-        <input id="expiry" name="expiry" type="month">
-      </label>
-    </div>
-  </fieldset>
-  <fieldset>
-    <div>
-      <button type=submit>Place Order</button>
-    </div>
-  </fieldset>
-</form>
+  </div>
 </body>
 </html>
