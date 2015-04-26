@@ -14,6 +14,8 @@
       method="POST"
       action="/submit"
       enctype="multipart/form-data">
+      <!-- enctype="application/x-www-form-urlencoded"> -->
+
       <h1>Register for Miss Bakers Space Cadets</h1>
       <fieldset>
         <legend>Simple Form Fields</legend>
@@ -24,10 +26,6 @@
       </fieldset>
       <fieldset>
         <legend>Nested Object Fields</legend>
-        <div class="pure-control-group">
-          <label>nested.with.dots</label>
-            <input id="email" name="nested.with.dots" type="email" placeholder="example@domain.com" value="example@domain.com">
-        </div>
         <div class="pure-control-group">
           <label>nested[with][brackets]</label>
             <input id="phone" name="nested[with][brackets]" type="tel" placeholder="Eg. +447000 000000" value="+447000 000000">
@@ -51,23 +49,23 @@
               <input id="skill" name="arrayFirstElem[0]" type="range" min="1" max="100" value="50">
           </div>
           <div class="pure-control-group">
-            <label>arraySecondElem[1]</label>
-              <input id="skill" name="arraySecondElem[1]" type="range" min="1" max="100" value="50">
+            <label>arrayNElem[2]</label>
+              <input id="skill" name="arrayNElem[2]" type="range" min="1" max="100" value="50">
           </div>
         </fieldset>
         <fieldset>
           <legend>Combo Object Array Fields</legend>
           <div class="pure-control-group">
-            <label>using[all][brackets]</label>
-              <textarea id="address" name="using[all][brackets]" rows=5>989 Market St</textarea>
+            <label>using[all][brackets][0]</label>
+              <textarea id="address" name="using[all][brackets][0]" rows=5>989 Market St</textarea>
           </div>
           <div class="pure-control-group">
-            <label>using[0].dots</label>
-            <input id="postCode" name="using[0].dots" type="text" value="94117">
+            <label>arrayElem[0][property]</label>
+            <input id="postCode" name="arrayElem[0][property]" type="text" value="94117">
           </div>
-          <div>
-            <label>anObject.anArray[1]
-              <input id="country" name="anObject.anArray[1]" list="country-names" type="text" value="England">
+          <div class="pure-control-group">
+            <label>anObject[anArray][1]</label>
+              <input id="country" name="anObject[anArray][1]" list="country-names" type="text" value="England">
               <datalist id="country-names">
                 <option label="England" value="England"></option>
                 <option label="Northern Ireland" value="Northern Ireland"></option>
@@ -75,7 +73,6 @@
                 <option label="Scotland" value="Scotland"></option>
                 <option label="Wales" value="Wales"></option>
               </datalist>
-            </label>
           </div>
         </fieldset>
         <fieldset>
